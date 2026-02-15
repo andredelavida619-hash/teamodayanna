@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💝 Para Dayanna - 15 días para verte</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Quicksand:wght@300;400;600&family=Playfair+Display:ital@0;1&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #ff9a9e 0%, #fad0c4 100%);
+            font-family: 'Quicksand', sans-serif;
+            padding: 20px;
+        }
+        
+        .card {
+            max-width: 650px;
+            width: 100%;
+            background: linear-gradient(145deg, #fff5f5 0%, #ffe4e4 100%);
+            border-radius: 40px 40px 30px 30px;
+            padding: 40px 35px;
+            box-shadow: 0 20px 40px rgba(255, 105, 180, 0.3),
+                        0 0 0 2px #fff5ee,
+                        0 0 0 5px #ffb6c1;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hearts-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+        
+        .heart-bg {
+            position: absolute;
+            color: rgba(255, 182, 193, 0.15);
+            font-size: 60px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .heart-bg:nth-child(1) { top: 10%; left: 5%; animation-delay: 0s; }
+        .heart-bg:nth-child(2) { top: 20%; right: 10%; font-size: 80px; animation-delay: 1s; }
+        .heart-bg:nth-child(3) { bottom: 15%; left: 15%; font-size: 50px; animation-delay: 2s; }
+        .heart-bg:nth-child(4) { bottom: 25%; right: 20%; font-size: 70px; animation-delay: 0.5s; }
+        .heart-bg:nth-child(5) { top: 40%; left: 25%; font-size: 45px; animation-delay: 1.5s; }
+        .heart-bg:nth-child(6) { top: 70%; left: 80%; font-size: 55px; animation-delay: 2.2s; }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(5deg); }
+        }
+        
+        .content {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+        }
+        
+        .header-hearts {
+            font-size: 40px;
+            margin-bottom: 10px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 56px;
+            color: #d44e6c;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(255, 182, 193, 0.5);
+        }
+        
+        .subtitle {
+            font-size: 20px;
+            color: #b13e5c;
+            margin-bottom: 20px;
+            font-weight: 300;
+            letter-spacing: 2px;
+        }
+        
+        .name-hearts {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .name-hearts span {
+            font-size: 40px;
+        }
+        
+        .name-hearts .dayanna-text {
+            font-family: 'Dancing Script', cursive;
+            font-size: 52px;
+            color: #c94f6c;
+            background: rgba(255, 255, 255, 0.6);
+            padding: 10px 30px;
+            border-radius: 60px;
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4);
+            border: 3px solid #ffb6c1;
+            animation: glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes glow {
+            0%, 100% { box-shadow: 0 5px 20px rgba(255, 105, 180, 0.4); }
+            50% { box-shadow: 0 5px 30px rgba(255, 20, 147, 0.6); }
+        }
+        
+        .distance-section {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50px;
+            padding: 15px 25px;
+            margin: 25px 0;
+            border: 2px dashed #ff99bb;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .distance-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .distance-icon {
+            font-size: 35px;
+            margin-bottom: 5px;
+        }
+        
+        .distance-text {
+            font-size: 16px;
+            color: #b13e5c;
+            font-weight: 600;
+        }
+        
+        .distance-heart {
+            font-size: 30px;
+            animation: heartbeat 1.5s ease-in-out infinite;
+        }
+        
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            25% { transform: scale(1.2); }
+            30% { transform: scale(1.1); }
+        }
+        
+        .message {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(5px);
+            border-radius: 40px;
+            padding: 35px 30px;
+            margin: 30px 0;
+            border: 3px solid #ffb6c1;
+            box-shadow: inset 0 0 30px rgba(255, 182, 193, 0.4);
+            position: relative;
+        }
+        
+        .message::before {
+            content: "❤️";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 30px;
+            background: #ffe4e4;
+            padding: 0 20px;
+        }
+        
+        .message p {
+            font-size: 18px;
+            line-height: 1.9;
+            color: #722f46;
+            margin-bottom: 25px;
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .message .highlight {
+            font-size: 22px;
+            color: #d44e6c;
+            font-weight: bold;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .message .distance-quote {
+            font-style: italic;
+            background: rgba(255, 230, 240, 0.7);
+            padding: 20px;
+            border-radius: 30px;
+            margin: 25px 0;
+            border-left: 5px solid #ff99bb;
+            font-size: 20px;
+        }
+        
+        .message .thoughts {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px 0;
+            font-size: 30px;
+        }
+        
+        .message .thoughts span {
+            animation: think 3s ease-in-out infinite;
+        }
+        
+        .message .thoughts span:nth-child(2) { animation-delay: 0.4s; }
+        .message .thoughts span:nth-child(3) { animation-delay: 0.8s; }
+        .message .thoughts span:nth-child(4) { animation-delay: 1.2s; }
+        .message .thoughts span:nth-child(5) { animation-delay: 1.6s; }
+        
+        @keyframes think {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+        }
+        
+        .time-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            background: white;
+            padding: 15px 25px;
+            border-radius: 60px;
+            margin: 20px 0;
+            border: 2px solid #ffb6c1;
+        }
+        
+        .clock {
+            font-size: 35px;
+            animation: spin 10s linear infinite;
+        }
+        
+        @keyframes spin {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+        
+        .time-text {
+            font-size: 18px;
+            color: #b13e5c;
+            font-weight: 600;
+        }
+        
+        .counter {
+            background: #ffb6c1;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 30px;
+            font-weight: bold;
+        }
+        
+        .travel-cupid {
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50px;
+            padding: 15px;
+            margin: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .travel-cupid span {
+            font-size: 45px;
+            display: inline-block;
+            animation: travel 8s linear infinite;
+        }
+        
+        @keyframes travel {
+            0% { transform: translateX(-300px) rotate(0deg); }
+            100% { transform: translateX(300px) rotate(360deg); }
+        }
+        
+        .flowers {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin: 30px 0;
+            font-size: 35px;
+        }
+        
+        .flower {
+            animation: sway 3s ease-in-out infinite;
+            display: inline-block;
+        }
+        
+        .flower:nth-child(2) { animation-delay: 0.4s; }
+        .flower:nth-child(3) { animation-delay: 0.8s; }
+        .flower:nth-child(4) { animation-delay: 1.2s; }
+        
+        @keyframes sway {
+            0%, 100% { transform: rotate(0deg); }
+            50% { transform: rotate(15deg); }
+        }
+        
+        .surprise-btn {
+            background: linear-gradient(45deg, #ff6b8b, #ff8da1);
+            border: none;
+            padding: 18px 45px;
+            font-size: 20px;
+            font-weight: 600;
+            color: white;
+            border-radius: 60px;
+            cursor: pointer;
+            margin: 25px 0;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(255, 105, 180, 0.5);
+            border: 3px solid #fff;
+            font-family: 'Quicksand', sans-serif;
+        }
+        
+        .surprise-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(255, 105, 180, 0.7);
+        }
+        
+        .hidden-message {
+            display: none;
+            background: white;
+            border-radius: 30px;
+            padding: 30px;
+            margin-top: 25px;
+            border: 4px dashed #ff99bb;
+            color: #d44e6c;
+            font-size: 22px;
+            animation: slideIn 0.6s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .hidden-message.show {
+            display: block;
+        }
+        
+        .hidden-message .big-text {
+            font-size: 32px;
+            font-weight: bold;
+            color: #ff1493;
+            display: block;
+            margin: 15px 0;
+            font-family: 'Dancing Script', cursive;
+        }
+        
+        .map-decoration {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            font-size: 25px;
+            margin: 20px 0;
+        }
+        
+        .map-decoration span {
+            background: white;
+            padding: 8px;
+            border-radius: 50%;
+        }
+        
+        @media (max-width: 480px) {
+            .card {
+                padding: 20px 15px;
+            }
+            
+            h1 {
+                font-size: 42px;
+            }
+            
+            .name-hearts .dayanna-text {
+                font-size: 38px;
+                padding: 8px 20px;
+            }
+            
+            .message p {
+                font-size: 16px;
+            }
+            
+            .distance-section {
+                padding: 10px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="hearts-bg">
+            <div class="heart-bg">❤️</div>
+            <div class="heart-bg">🧡</div>
+            <div class="heart-bg">💖</div>
+            <div class="heart-bg">💗</div>
+            <div class="heart-bg">💓</div>
+            <div class="heart-bg">💕</div>
+        </div>
+        
+        <div class="content">
+            <div class="header-hearts">
+                <span>💕</span> <span>💞</span> <span>💕</span>
+            </div>
+            
+            <h1>Feliz San Valentín</h1>
+            <div class="subtitle">El amor no conoce de distancias</div>
+            
+            <div class="name-hearts">
+                <span>💝</span>
+                <span class="dayanna-text">Dayanna</span>
+                <span>💝</span>
+            </div>
+            
+            <div class="distance-section">
+                <div class="distance-item">
+                    <span class="distance-icon">📍</span>
+                    <span class="distance-text">Aquí yo</span>
+                </div>
+                <span class="distance-heart">❤️</span>
+                <span class="distance-heart">✨</span>
+                <span class="distance-heart">❤️</span>
+                <div class="distance-item">
+                    <span class="distance-icon">🎯</span>
+                    <span class="distance-text">Allí tú, Dayanna</span>
+                </div>
+            </div>
+            
+            <div class="map-decoration">
+                <span>🏠</span>
+                <span>➡️</span>
+                <span>✈️</span>
+                <span>➡️</span>
+                <span>💝</span>
+                <span>➡️</span>
+                <span>🏠</span>
+            </div>
+            
+            <div class="message">
+                <p>Mi querida <span class="highlight">Dayanna</span>,</p>
+                
+                <p>Hoy, en este día de San Valentín, quiero que sepas <strong>lo mucho que me gustas</strong>. No es solo tu sonrisa, no es solo tu mirada, es todo tu ser lo que me tiene completamente cautivado. Cada conversación, cada recuerdo, cada momento que hemos compartido se queda grabado en mi mente y en mi corazón.</p>
+                
+                <div class="distance-quote">
+                    "Aunque la distancia nos separe físicamente, <strong>siempre pienso en ti</strong>. No pasa un solo día sin que cruces por mi pensamiento, sin que imagine tu risa, sin que desee poder abrazarte."
+                </div>
+                
+                <p>Y es que la distancia no ha hecho más que fortalecer lo que siento por ti. Cada kilómetro que nos separa es un recordatorio de lo mucho que vales, de lo especial que eres, de lo importante que te has vuelto en mi vida.</p>
+                
+                <p><span class="highlight">Espero con ansias el momento de verte</span>. Cuento los días, las horas, los minutos que faltan para poder mirarte a los ojos y decirte en persona todo esto que llevo en el corazón.</p>
+                
+                <div class="thoughts">
+                    <span>💭</span>
+                    <span>💭</span>
+                    <span>💭</span>
+                    <span>💭</span>
+                    <span>💭</span>
+                </div>
+                
+                <p>Hasta ese momento, guardo cada pensamiento tuyo como un tesoro, y la espera, aunque difícil, vale la pena porque sé que al final del camino estás tú.</p>
+                
+                <div class="signature" style="font-family: 'Dancing Script', cursive; font-size: 32px; color: #d44e6c; margin-top: 20px;">
+                    Con todo mi amor, para Dayanna ❤️
+                </div>
+            </div>
+            
+            <div class="time-section">
+                <span class="clock">⏰</span>
+                <span class="time-text">Cada segundo que pasa es un segundo menos para verte</span>
+                <span class="counter">❤️</span>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #ff6b8b, #ff8da1); padding: 15px; border-radius: 50px; margin: 15px 0; border: 3px solid white; box-shadow: 0 5px 0 #b13e5c;">
+                <span style="font-size: 28px; font-weight: bold; color: white; text-shadow: 2px 2px 0 #b13e5c;">✨ ¡SOLO FALTAN 15 DÍAS PARA VERNOS! ✨</span>
+            </div>
+            
+            <div class="travel-cupid">
+                <span>👼🏹</span>
+                <span style="font-size: 20px; margin: 0 10px;">✈️</span>
+                <span style="font-size: 20px;">🌍</span>
+                <span style="font-size: 20px;">✈️</span>
+                <span>💘</span>
+            </div>
+            
+            <div class="flowers">
+                <span class="flower">🌷</span>
+                <span class="flower">🌺</span>
+                <span class="flower">🌸</span>
+                <span class="flower">🌼</span>
+                <span class="flower">🌻</span>
+            </div>
+            
+            <button class="surprise-btn" onclick="showSurprise()">
+                💝 Dayanna, toca aquí 💝
+            </button>
+            
+            <div id="surpriseMessage" class="hidden-message">
+                <span class="big-text">¡Dayanna!</span>
+                <span>💖</span>
+                <p style="font-size: 18px; margin: 15px 0;">Quería que supieras que...</p>
+                <span class="big-text">ME GUSTAS MUCHÍSIMO</span>
+                <p style="font-size: 18px; margin: 15px 0;">Y aunque estemos lejos,</p>
+                <span class="big-text">SIEMPRE PIENSO EN TI</span>
+                <p style="font-size: 18px; margin: 15px 0;">y</p>
+                <span class="big-text">ESPERO CON ANSIAS VERTE</span>
+                <div style="font-size: 30px; margin: 15px 0; background: #ffb6c1; color: white; padding: 10px; border-radius: 30px;">
+                    ✨ 15 DÍAS ✨
+                </div>
+                <div style="font-size: 40px; margin-top: 20px;">
+                    💝 ✨ 💕 ✨ 💝
+                </div>
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; margin-top: 20px; font-size: 20px;">
+                <span style="animation: pulse 1.5s infinite;">💗</span>
+                <span style="color: #d44e6c;">te quiero</span>
+                <span style="animation: pulse 1.5s infinite; animation-delay: 0.3s;">💗</span>
+                <span style="color: #d44e6c;">Dayanna</span>
+                <span style="animation: pulse 1.5s infinite; animation-delay: 0.6s;">💗</span>
+            </div>
+            
+            <div style="background: #ffe4e4; padding: 15px; border-radius: 30px; margin-top: 15px; font-size: 20px; color: #b13e5c; font-weight: bold; border: 2px solid #ffb6c1;">
+                ⏳ FALTAN 15 DÍAS PARA VERTE, DAYANNA ⏳
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        function showSurprise() {
+            const surprise = document.getElementById('surpriseMessage');
+            surprise.classList.toggle('show');
+            
+            const button = document.querySelector('.surprise-btn');
+            if (surprise.classList.contains('show')) {
+                button.textContent = '💝 Dayanna, cierra la sorpresa 💝';
+                button.style.background = 'linear-gradient(45deg, #ff4f6b, #ff708d)';
+                createLoveEffect();
+            } else {
+                button.textContent = '💝 Dayanna, toca aquí 💝';
+                button.style.background = 'linear-gradient(45deg, #ff6b8b, #ff8da1)';
+            }
+        }
+        
+        function createLoveEffect() {
+            for (let i = 0; i < 20; i++) {
+                setTimeout(() => {
+                    const heart = document.createElement('span');
+                    heart.innerHTML = ['❤️', '💖', '💗', '💓', '💕', '💝'][Math.floor(Math.random() * 6)];
+                    heart.style.position = 'fixed';
+                    heart.style.left = Math.random() * 100 + '%';
+                    heart.style.bottom = '0';
+                    heart.style.fontSize = (20 + Math.random() * 20) + 'px';
+                    heart.style.animation = `flyUp ${2 + Math.random() * 3}s ease-out`;
+                    heart.style.zIndex = '10000';
+                    heart.style.pointerEvents = 'none';
+                    
+                    const style = document.createElement('style');
+                    style.textContent = `
+                        @keyframes flyUp {
+                            0% { transform: translateY(0) rotate(0deg); opacity: 1; }
+                            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+                        }
+                    `;
+                    document.head.appendChild(style);
+                    
+                    document.body.appendChild(heart);
+                    
+                    setTimeout(() => {
+                        document.body.removeChild(heart);
+                    }, 5000);
+                }, i * 100);
+            }
+        }
+    </script>
+</body>
+</html>
